@@ -1,0 +1,164 @@
+*{
+	margin: 0; padding: 0; box-sizing: border-box;
+	list-style-type: none;
+}
+body{
+	display: flex;
+	align-items: center;
+	height: 100vh;
+	width: 100vw;
+	background: hsl(203.6,45.7%,36.1%);
+	color: #ccc;
+}
+
+/* body-container */
+.body-container{
+	width: 100%;
+	height: 100vh;
+	padding: 15px 10px 0 10px;
+}
+
+/* logo and toggle */
+.logo-container{
+	position: relative;
+	z-index: 100;
+	display: flex;
+	margin-bottom: 30px;
+}
+
+/* logo*/
+.logo{
+	letter-spacing: 3px;
+	text-transform: uppercase;
+	font-size: 25px;
+	transition-delay: 250ms;
+	transition-duration: 250ms;
+	transition-timing-function: cubic-bezier(.13,.24,.35,2.0);
+}
+/* animated logo */
+.logo.active{
+	text-shadow: 0 3px 2px black;
+	transition-duration: 250ms;
+	transition-timing-function: cubic-bezier(.13,.24,.35,1.64);
+}
+
+/* toggle*/
+#toggle{
+	position: absolute;
+	right: 0;
+} 
+.one, .two, .three{
+	width: 60px;
+	height: 10px;
+	border-radius: 5px;
+	background-color: #ccc;
+	box-shadow: 0 0 2px black;
+	transition-duration: 250ms;
+	transition-timing-function: cubic-bezier(.13,.24,.35,1.64);
+}
+.one, .two{
+	margin-bottom: 5px;
+}
+.one, .three{
+	transition-delay: 0ms;
+}
+.two{
+	transition-duration: 300ms;
+	/* transition-timing-function: ease-out; */
+}
+/* animated toggle */
+.active .one{
+	transform: translate(0, 15px) rotate(45deg);
+}
+.active .two{
+	transform: translate(-100px, 0);
+	background: transparent;
+	box-shadow: none;
+}
+.active .three{
+	transform: translate(0, -15px) rotate(-45deg);
+}
+.active .one, .active.two, .active.three{
+	transition-duration: 250ms;
+	transition-timing-function: cubic-bezier(.13,.24,.35,1.64);
+}
+
+/* navigations */
+.navs{
+	position: absolute;
+	left: 0;
+	top: 0;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 30px;
+	line-height: 40px;
+	z-index: 10;
+	display: flex;
+	height: 100%;
+	width: 100vw;
+}
+.navs::before, .navs::after{
+	content: "";
+	height: 100vh;
+	flex-basis: 1;
+	background: #b94071;
+	width: 0;
+	transition-delay: 400ms;
+	transition-duration: 250ms;
+	transition-timing-function: cubic-bezier(.13,.24,.35,1.64);
+}
+.navs::after{
+	position: absolute;
+	right: 0;
+}
+.navs ul{
+	display: flex;
+	height: 100vh;
+	flex-direction: column;
+	justify-content: center;
+	align-content: center;
+	flex-grow: 3;
+	position: absolute;
+	width: 100%;
+	top: -100%;
+	transition-delay: 250ms;
+	transition-duration: 300ms;
+	transition-timing-function: /* cubic-bezier(.13,.24,.35,1.64) */cubic-bezier(.1, .2, .3, 1.4);
+}
+.navs li{
+	line-height: 50px;
+	letter-spacing: 2px;
+}
+/* nav animated */
+.navs.active ul{
+	top: 0;
+	transition-delay: 500ms;
+	transition-duration: 250ms;
+	transition-timing-function: cubic-bezier(.13,.24,.35,1.64);
+}
+.navs.active::before, .navs.active::after{
+	transition-delay: 250ms;
+	transition-duration: 250ms;
+	transition-timing-function: cubic-bezier(.13,.24,.35,1.64);
+	width: 28%;
+}
+
+/* text and footer */
+.texts, .foot{
+	transition-delay: 500ms;
+	transition-duration: 250ms;
+	transition-timing-function: cubic-bezier(.13,.24,.45,1) /* ease-in */;
+}
+.foot{
+	text-align: center;
+	position: absolute;
+	bottom: 0;
+	width: 95%;
+}
+/* text and footer animated */
+.texts.active, .foot.active{
+	transition-delay: 250ms;
+	transition-duration: 250ms;
+	transition-timing-function: cubic-bezier(.13,.24,.35,1);
+	color: rgb(50, 101, 134);
+}
